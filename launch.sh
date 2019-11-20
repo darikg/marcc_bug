@@ -2,7 +2,7 @@
 
 #SBATCH
 #SBATCH --job-name=marcc_bug
-#SBATCH -t{10}
+#SBATCH -t10
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=24
 #SBATCH --partition=parallel
