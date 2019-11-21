@@ -9,10 +9,14 @@ ver matlab
 
 %% Set matlab paths
 init_dir = cd;
-addpath('/scratch/groups/xwang7/xbz')
+disp("Adding xbz path");
+addpath('/scratch/groups/xwang7/xbz');
+disp("xbz.util.path.addpath");
 xbz.util.path.addpath();
+disp("xbz.evo.remote.init()");
 xb3.evo.remote.init('fine');
 
+disp("Adding texture");
 cd(fullfile(xb3.evo.remote.basedir(), 'texture'))
 [~, head] = system('git rev-parse HEAD');
 fprintf('\ntexture git HEAD at %s\n\n', head);
@@ -23,6 +27,7 @@ cd(init_dir)
 
 
 %% Initialize parallel pool
+disp("Init parallel pool");
 tmpdir = tempname;
 mkdir(tmpdir);
 pc = parcluster();
