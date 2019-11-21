@@ -1,5 +1,10 @@
 function save_some_data_parallel
 
+job_id = getenv('SLURM_JOBID');
+array_id = getenv('SLURM_ARRAY_TASK_ID');
+fprintf('job %d array %d\n', job_id, array_id);
+ver matlab
+
 
 %% Initialize parallel pool
 tmpdir = tempname;
@@ -16,8 +21,8 @@ parfor i = 1:n
 end
 
 %% Save the data
-subjobid = getenv('SLURM_ARRAY_TASK_ID');
-filename = sprintf('data%d.mat', subjobid);
+filename = sprintf('data%d.mat', array_id);
+fprintf('Saving data to %s\n', filename);
 save(filename, 'data');
 
 
