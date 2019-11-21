@@ -1,8 +1,11 @@
 function save_some_data_parallel
 
 job_id = getenv('SLURM_JOBID');
+disp(job_id)
 array_id = getenv('SLURM_ARRAY_TASK_ID');
-fprintf('job %d array %d\n', job_id, array_id);
+disp(array_id);
+fprintf('...........\n');
+
 ver matlab
 
 
