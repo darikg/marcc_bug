@@ -1,9 +1,8 @@
 function save_some_data_parallel
 
 job_id = getenv('SLURM_JOBID');
-disp(job_id)
 array_id = getenv('SLURM_ARRAY_TASK_ID');
-disp(array_id);
+fprintf("job %s array %s", job_id, array_id);
 fprintf('...........\n');
 
 ver matlab
@@ -24,7 +23,7 @@ parfor i = 1:n
 end
 
 %% Save the data
-filename = sprintf('data%d.mat', array_id);
+filename = sprintf('data%s.mat', array_id);
 fprintf('Saving data to %s\n', filename);
 save(filename, 'data');
 

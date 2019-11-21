@@ -7,7 +7,7 @@
 #SBATCH --ntasks-per-node=24
 #SBATCH --partition=parallel
 
-module load matlab/R2019a
+module restore matlab2019a
 
 
 logfile="log$SLURM_ARRAY_TASK_ID.txt"
