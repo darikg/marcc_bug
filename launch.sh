@@ -10,7 +10,7 @@
 module load matlab/R2019a
 
 
-logfile="log.txt"
+logfile="log$SLURM_ARRAY_TASK_ID.txt"
 
 echo "Subjob $SLURM_ARRAY_TASK_ID" >> "$logfile"
 pwd >> "$logfile"
