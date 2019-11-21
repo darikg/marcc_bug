@@ -7,6 +7,20 @@ fprintf('...........\n');
 
 ver matlab
 
+%% Set matlab paths
+init_dir = cd;
+addpath('/scratch/groups/xwang7/xbz')
+xbz.util.path.addpath();
+xb3.evo.remote.init('fine');
+
+cd(fullfile(xb3.evo.remote.basedir(), 'texture'))
+[~, head] = system('git rev-parse HEAD');
+fprintf('\ntexture git HEAD at %s\n\n', head);
+[~, status] = system('git status'); 
+disp(status);
+
+cd(init_dir)
+
 
 %% Initialize parallel pool
 tmpdir = tempname;
